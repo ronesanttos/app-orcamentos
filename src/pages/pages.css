@@ -1,0 +1,57 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page form {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
+  background-color: #18232c;
+  width: 100%;
+}
+.page .page-input {
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.page-input label {
+  color: #ccc;
+  font-weight: 700;
+  padding: 0.2rem;
+}
+
+.page-input input {
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 3px;
+}
+
+.page-input:last-of-type {
+  padding-bottom: 2rem;
+}
+
+.page-input input:hover {
+  border: 2px solid rgba(0, 255, 255, 0.118);
+}
+
+.page a {
+  width: 50%;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.222);
+}
+
+.page a:hover {
+  background-color: red;
+}

@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #304558;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.box h2 {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.box p {
+  border-bottom: 1px solid white;
+  padding-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.box span {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+}
+
+.edit {
+    margin: 2rem 0 .5rem;
+}
+
+.pdf {
+    background-color: aqua;
+}
+
+.pdf:hover {
+    background-color: rgba(0, 255, 255, 0.241);
+}

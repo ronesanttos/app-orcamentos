@@ -1,0 +1,19 @@
+.msg {
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #CCC;
+}
+
+.success {
+    color: green;
+    background-color: aliceblue;
+    border-color: rgba(147, 212, 147, 0.992) ;
+}
+
+.error {
+    color: rgb(247, 13, 13);
+    background-color: rgb(241, 222, 222);
+    border-color: rgba(239, 96, 96, 0.992) ;
+}

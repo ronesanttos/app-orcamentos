@@ -1,0 +1,38 @@
+header {
+  padding: 1.8rem 1rem;
+  width: 480px;
+  height: 6rem;
+  background-color: #0c1116;
+  position: fixed;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #18232c;
+  border: 1px solid #304558;
+  border-radius: 8px;
+  width: 100px;
+  height: 42px;
+  text-align: center;
+}
+
+li a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f2f2f0;
+  letter-spacing: 2px;
+}
+
+li:hover {
+ box-shadow: 0px 1px 5px 1px white;
+  cursor: pointer;
+}
