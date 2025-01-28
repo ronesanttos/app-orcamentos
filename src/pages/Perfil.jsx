@@ -115,6 +115,9 @@ const Perfil = () => {
             })
     }
 
+    if(!user) {
+        return <p>carregando</p>
+    }
     return (
         <div className='page'>
             <h1>Editar Perfil</h1>

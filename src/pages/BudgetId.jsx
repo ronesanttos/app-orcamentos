@@ -2,7 +2,8 @@ import { useParams, Link } from "react-router-dom"
 import { Context } from "../context/AuthContext"
 import { useContext, useState, useEffect } from "react"
 import "./budgetId.css"
-import { jsPDF } from "jspdf"
+import gerarPdf from "../services/gerarPdf"
+
 
 const BudgetId = () => {
     const { id } = useParams()
@@ -47,32 +48,6 @@ const BudgetId = () => {
             })
     }
 
-    const gerarPDF = () => {
-        if (!budget) {
-            console.log("Sem dados para pdf")
-            return
-        }
-        const doc = new jsPDF();
-
-        // Definir estilo da tabela
-        doc.setFontSize(12);
-
-        // Definir os dados da tabela
-        const dadosTabela = [
-            ["Nome do Cliente", String(budget?.name_cliente)],
-            ["Endereço", String(budget?.anddress)],
-            ["Contato", String(budget?.contact)],
-            ["Serviços", String(budget?.service)],
-            ["Detalhes", String(budget?.details)],
-            ["Metros", String(budget?.qtd)],
-            ["Valor Total", String((budget?.unit_price * budget?.qtd).toFixed(2))]
-        ];
-
-      
-        doc.save(`orcamento${id}.pdf`)
-        console.log(dadosTabela)
-    }
-
 
     useEffect(() => {
         getBudgetID()
@@ -94,7 +69,7 @@ const BudgetId = () => {
                 <p>Valor total: <span>{budget?.unit_price * budget?.qtd}</span></p>
             </div>}
             <button className="btn edit"><Link to={`/edit/${budget._id}`}>Editar</Link></button>
-            <button className="btn pdf" onClick={gerarPDF}>pdf</button>
+            <button className="btn pdf" onClick={() => gerarPdf(budget)}>pdf</button>
         </div>
     )
 }
