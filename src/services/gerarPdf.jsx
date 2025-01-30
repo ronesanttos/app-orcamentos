@@ -6,42 +6,57 @@ import pdfFonts from "pdfmake/build/vfs_fonts";
 function gerarPdf(clientes) {
     pdfMake.addVirtualFileSystem(pdfFonts);
 
+    const date = new Date()
+    const dia = String(date.getDate()).padStart(2, '0');
+    const mes = String(date.getMonth() + 1).padStart(2, '0');
+    const ano = date.getFullYear();
+
+    const dateFormat = `${dia}/${mes}/${ano}`
+
     const titles = [
         {
-            text: 'Orcamento',
-            fontSize: 15,
-            bold: true,
-            margin: [15, 20, 0, 45]
-        }
-    ];
+            table: {
+                headerRows: 1,
+                widths: ['50%', '50%'],
+                body: [
+                    [
+                        {
+                            text: 'Orcamento ' + ano,
+                            fontSize: 15,
+                            bold: true,
+                            margin: [15, 20, 0, 5],
+                        },
+                        {
+                            text: dateFormat,
+                            margin: [15, 20, 10, 5],
+                            alignment: 'right',
+                            fontSize: 10
+                        }
+                    ]
+                ]
+            },
 
-    const data = () => {
-        [
-            { text: clientes.name_cliente, fontSize: 10 },
-            { text: clientes.anddress, fontSize: 10 },
-            { text: clientes.service, fontSize: 10 },
-        ]
-    };
+            layout: 'noBorders'
+        }
+    ]
 
     const details = [
         {
             table: {
-                headerRows: 1,
-                widths: ['*', '*', '*', '*',],
+
+                widths: ['20%', '80%',],
                 body: [
                     [
-                        { text: 'Nome do Cliente', fontSize: 10, style: 'tableHeader' },
-                        { text: 'Endereco', fontSize: 10, style: 'tableHeader' },
-                        { text: 'Servico', fontSize: 10, style: 'tableHeader' }
+
+                        { text: 'CLIENTE: ', margin: [5, 5, 5, 5], border: [true, true, false, true] }, { text: clientes.name_cliente, margin: [15, 5, 5, 5], border: [false, true, true, true] },
                     ],
-                    [clientes.name_cliente, clientes.anddress, clientes.service]
+                    [
+                        { text: 'Endereco', fontSize: 10, style: 'tableHeader', margin: [5, 5, 5, 5] }, { text: clientes.anddress, margin: [15, 5, 5, 5], }
+                    ]
+
                 ]
             },
-            layout: {
-                fillColor: function (rowIndex, node, columnIndex) {
-                    return (rowIndex % 2 === 0) ? '#CCCCCC' : null;
-                }
-            }
+            layout: 'tableExample'
 
         }
     ];
@@ -66,7 +81,7 @@ function gerarPdf(clientes) {
         footer: rodape
     }
 
-    pdfMake.createPdf(docDetails).download()
+    pdfMake.createPdf(docDetails).open()
 }
 
 export default gerarPdf
