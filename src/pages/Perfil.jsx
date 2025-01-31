@@ -17,7 +17,6 @@ const Perfil = () => {
 
     const navigate = useNavigate()
 
-
     const getUser = async () => {
         await fetch(`https://api-budget.onrender.com/api/user/${userLocal.userId}`, {
             method: "GET",
@@ -49,7 +48,7 @@ const Perfil = () => {
                         auth = true
                         setUser(data.user)
                     }
-                }, 1500);
+                }, 1000);
             })
     }
 

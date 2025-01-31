@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 
-
 const Context = createContext()
 
 function AuthProvider ({children}) {

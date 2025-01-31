@@ -1,14 +1,13 @@
 import { useEffect, useState, useContext } from "react"
 import { Context } from "../context/AuthContext"
 import Card from "../components/Card"
-import Message from "../components/Message"
 import { Link } from "react-router-dom"
 
 const Home = () => {
   const [data, setData] = useState([])
   const [typeMsg, setTypeMsg] = useState("")
   const { userLocal, isLoading } = useContext(Context)
-
+  
   const getBudgets = async () => {
     await fetch("https://api-budget.onrender.com/api/budget/my_budgets", {
       method: "GET",
@@ -20,7 +19,6 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data)
-        console.log(data)
       })
       .catch(err => console.log(err))
   }

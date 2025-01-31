@@ -64,26 +64,26 @@ const Register = () => {
         })
     }
     return (
-        <div className='register'>
+        <div className='page'>
             <h1>Criar conta</h1>
             {data.length > 0 && <Message msg={data} msgType={typeMsg} />}
             <form onSubmit={handleSubmit}>
-                <div className='register-input'><label htmlFor="name">Nome completo</label>
+                <div className='page-input'><label htmlFor="name">Nome completo</label>
                     <input type="text" id='name' name='name' placeholder='Digite seu nome' onChange={(e) => setName(e.target.value)} value={name || ""} /></div>
 
-                <div className='register-input'><label htmlFor='email'>
+                <div className='page-input'><label htmlFor='email'>
                     E-mail</label><input type="email" id='email' name='email' placeholder='Digite seu e-mail' onChange={(e) => setEmail(e.target.value)} value={email || ""} /></div>
 
-                <div className='register-input'><label htmlFor="company">Nome da empresa</label>
+                <div className='page-input'><label htmlFor="company">Nome da empresa</label>
                     <input type="text" name='company' id='company' placeholder='Digite o nome da sua empresa' onChange={(e) => setCompany(e.target.value)} value={company || ""} /></div>
 
-                <div className='register-input'><label htmlFor="whats">Telefone</label>
+                <div className='page-input'><label htmlFor="whats">Telefone</label>
                     <input type="number" name="whats" id="whats" placeholder='Numero do celular' onChange={(e) => setWhats(e.target.value)} value={whats || ""} /></div>
 
-                <div className='register-input'><label htmlFor="password">Senha</label>
+                <div className='page-input'><label htmlFor="password">Senha</label>
                     <input type="text" name="password" id="password" placeholder='Digite uma senha' onChange={(e) => setPassword(e.target.value)} value={password || ""} /></div>
 
-                <div className='register-input'><label htmlFor="confirmpass">Confirmar senha</label>
+                <div className='page-input'><label htmlFor="confirmpass">Confirmar senha</label>
                     <input type="text" name="confirmpass" id="confirmpass" placeholder='Digite sua senha novamente' onChange={(e) => setConfirmpass(e.target.value)} value={confirmPass || ""} /></div>
 
                 <Button msg={"Criar"} />

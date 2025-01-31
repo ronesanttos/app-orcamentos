@@ -28,7 +28,7 @@ function gerarPdf(clientes) {
                         },
                         {
                             text: dateFormat,
-                            margin: [15, 20, 10, 5],
+                            margin: [15, 20, 20, 5],
                             alignment: 'right',
                             fontSize: 10
                         }
@@ -48,12 +48,27 @@ function gerarPdf(clientes) {
                 body: [
                     [
 
-                        { text: 'CLIENTE: ', margin: [5, 5, 5, 5], border: [true, true, false, true] }, { text: clientes.name_cliente, margin: [15, 5, 5, 5], border: [false, true, true, true] },
+                        { text: 'CLIENTE: ', margin: [5, 5, 5, 5], fillColor: 'burlywood' }, { text: clientes.name_cliente, margin: [15, 5, 5, 5] }
                     ],
                     [
-                        { text: 'Endereco', fontSize: 10, style: 'tableHeader', margin: [5, 5, 5, 5] }, { text: clientes.anddress, margin: [15, 5, 5, 5], }
-                    ]
+                        { text: 'ENDEREÇO:', style: 'tableHeader', fillColor: 'burlywood', margin: [5, 5, 5, 5] }, { text: clientes.anddress, margin: [15, 5, 5, 5], }
+                    ],
+                    [
 
+                        { text: 'CONTATO: ', margin: [5, 5, 5, 5], fillColor: 'burlywood' }, { text: clientes.contact, margin: [15, 5, 5, 5] }
+                    ],
+                    [
+
+                        { text: 'SERVIÇO: ', margin: [5, 5, 5, 5], fillColor: 'burlywood' }, { text: clientes.service, margin: [15, 5, 5, 5] }
+                    ],
+                    [
+
+                        { text: 'DESCRIÇÃO: ', margin: [5, 5, 5, 5],fillColor:'burlywood' }, { text: clientes.details, margin: [15, 5, 5, 5]}
+                    ],
+                    [
+
+                        { text: 'VALOR: ', margin: [5, 5, 5, 5],fillColor:'burlywood' }, { text: clientes.unit_price * clientes.qtd, margin: [15, 5, 5, 5]}
+                    ],
                 ]
             },
             layout: 'tableExample'
@@ -81,7 +96,7 @@ function gerarPdf(clientes) {
         footer: rodape
     }
 
-    pdfMake.createPdf(docDetails).open()
+    pdfMake.createPdf(docDetails).download()
 }
 
 export default gerarPdf
