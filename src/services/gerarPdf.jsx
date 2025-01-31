@@ -96,7 +96,7 @@ function gerarPdf(clientes) {
         footer: rodape
     }
 
-    pdfMake.createPdf(docDetails).download()
+    pdfMake.createPdf(docDetails).download(clientes.name_cliente + '.pdf')
 }
 
 export default gerarPdf
